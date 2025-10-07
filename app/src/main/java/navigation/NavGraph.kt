@@ -9,20 +9,15 @@ import com.example.lab.ui.screens.SecondScreen
 
 @Composable
 fun NavGraph(navController: NavHostController) {
-    NavHost(
-        navController = navController,
-        startDestination = "first"
-    ) {
+    NavHost(navController = navController, startDestination = "first") {
         composable("first") {
-            FirstScreen(
-                onNavigate = { message ->
-                    navController.navigate("second/$message")
-                }
-            )
+            FirstScreen(onNavigate = { message ->
+                navController.navigate("second/${message}")
+            })
         }
         composable("second/{message}") { backStackEntry ->
             val message = backStackEntry.arguments?.getString("message") ?: "Sin datos"
-            SecondScreen(message)
+            SecondScreen(message = message, onBack = { navController.navigateUp() })
         }
     }
 }
