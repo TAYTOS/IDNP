@@ -10,7 +10,8 @@ import androidx.compose.ui.unit.dp
 @Composable
 fun FirstScreen(
     onNavigate: (String) -> Unit,
-    onNavigateToAnimation: () -> Unit // nuevo parámetro para ir al laboratorio
+    onNavigateToAnimation: () -> Unit, // nuevo parámetro para ir al laboratorio
+    onNavigateToProducts: () -> Unit
 ) {
     Surface(
         modifier = Modifier.fillMaxSize(),
@@ -45,6 +46,9 @@ fun FirstScreen(
                 onClick = { onNavigateToAnimation() }
             ) {
                 Text(text = "Ir al Laboratorio de Animación")
+            }
+            Button(onClick = { onNavigate("product_list") }) {
+                Text("Ver Productos")
             }
         }
     }

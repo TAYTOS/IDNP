@@ -49,6 +49,7 @@ dependencies {
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
+    implementation("io.coil-kt:coil-compose:2.4.0")
 
     // 🔹 BOM para Compose (Kotlin DSL usa implementation(platform(...)))
     implementation(platform("androidx.compose:compose-bom:2024.09.01"))
