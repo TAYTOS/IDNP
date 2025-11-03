@@ -47,8 +47,8 @@ fun FirstScreen(
             ) {
                 Text(text = "Ir al Laboratorio de Animación")
             }
-            Button(onClick = { onNavigate("product_list") }) {
-                Text("Ver Productos")
+            Button(onClick = onNavigateToProducts) {
+                Text("Ver productos")
             }
         }
     }

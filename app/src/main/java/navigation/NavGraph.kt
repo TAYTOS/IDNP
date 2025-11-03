@@ -34,7 +34,7 @@ fun NavGraph(navController: NavHostController) {
             )
         }
 
-        // ✅ Pantalla que recibe mensaje de FirstScreen
+        // ✅ Pantalla que recibe el mensaje
         composable(
             route = "second/{message}",
             arguments = listOf(
@@ -48,12 +48,12 @@ fun NavGraph(navController: NavHostController) {
             )
         }
 
-        // ✅ Laboratorio de animación
+        // ✅ Pantalla de animación
         composable("animation") {
             AnimationScreen()
         }
 
-        // ✅ Lista dinámica de productos
+        // ✅ Pantalla de lista de productos
         composable("products") {
             ProductListScreen(
                 onProductSelected = { id ->
@@ -62,7 +62,7 @@ fun NavGraph(navController: NavHostController) {
             )
         }
 
-        // ✅ Pantalla de detalle con parámetro dinámico
+        // ✅ Pantalla de detalle de producto
         composable(
             route = "productDetail/{productId}",
             arguments = listOf(
@@ -71,7 +71,7 @@ fun NavGraph(navController: NavHostController) {
         ) { backStackEntry ->
             val id = backStackEntry.arguments?.getString("productId")
             ProductDetailScreen(
-                productId = id,
+                productId = id ?: "",
                 onBack = { navController.navigateUp() }
             )
         }

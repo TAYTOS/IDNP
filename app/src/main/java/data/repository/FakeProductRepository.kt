@@ -9,8 +9,8 @@ object FakeProductRepository {
             Product(
                 id = index + 1,
                 name = "Producto $index",
-                category = "Categoría ${(1..5).random()}",
-                avatar = "https://i.pravatar.cc/150?img=${(1..70).random()}"
+                price = (10..100).random().toDouble(),
+                stock = (1..50).random()
             )
         }
     }

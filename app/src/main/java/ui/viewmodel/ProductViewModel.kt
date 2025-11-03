@@ -2,11 +2,11 @@ package com.example.lab.ui.viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.lab.data.model.Product
 import com.example.lab.data.repository.FakeProductRepository
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
+import com.example.lab.data.model.Product
 
 class ProductViewModel : ViewModel() {
 
