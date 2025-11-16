@@ -10,16 +10,26 @@ import com.example.lab.ui.screens.SecondScreen
 import com.example.lab.ui.screens.AnimationScreen
 import com.example.lab.ui.screens.ProductListScreen
 import com.example.lab.ui.screens.ProductDetailScreen
+import com.example.lab.ui.screens.data.ThemeScreen
+import com.example.lab.ui.viewmodel.ThemeViewModel
 
 @Composable
-fun NavGraph(navController: NavHostController) {
+fun NavGraph(
+    navController: NavHostController,
+    themeViewModel: ThemeViewModel
+) {
 
     NavHost(
         navController = navController,
         startDestination = "first"
     ) {
 
-        // ✅ Pantalla inicial
+        // 🔵 Pantalla de selección de tema
+        composable("theme") {
+            ThemeScreen(themeViewModel)
+        }
+
+        // 🔵 Pantalla inicial
         composable("first") {
             FirstScreen(
                 onNavigate = { message ->
@@ -30,11 +40,14 @@ fun NavGraph(navController: NavHostController) {
                 },
                 onNavigateToProducts = {
                     navController.navigate("products")
+                },
+                onNavigateToTheme = {
+                    navController.navigate("theme")
                 }
             )
         }
 
-        // ✅ Pantalla que recibe el mensaje
+        // 🔵 Pantalla que recibe mensaje
         composable(
             route = "second/{message}",
             arguments = listOf(
@@ -48,12 +61,12 @@ fun NavGraph(navController: NavHostController) {
             )
         }
 
-        // ✅ Pantalla de animación
+        // 🔵 Animación
         composable("animation") {
             AnimationScreen()
         }
 
-        // ✅ Pantalla de lista de productos
+        // 🔵 Lista de productos
         composable("products") {
             ProductListScreen(
                 onProductSelected = { id ->
@@ -62,7 +75,7 @@ fun NavGraph(navController: NavHostController) {
             )
         }
 
-        // ✅ Pantalla de detalle de producto
+        // 🔵 Detalle de producto
         composable(
             route = "productDetail/{productId}",
             arguments = listOf(
